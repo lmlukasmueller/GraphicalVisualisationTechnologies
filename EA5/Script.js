@@ -218,7 +218,7 @@ var app = ( function() {
 				case('S'):
 					camera.yAngle += 1 * deltaRotate;
 					break;
-				case('Dd'):
+				case('D'):
 					camera.yAngle += -1 * deltaRotate;
 					break;
 				case('Y'):
