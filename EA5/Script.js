@@ -209,16 +209,16 @@ var app = ( function() {
 
 			// Change projection of scene.
 			switch(c) {
-				case('D'):
+				case('A'):
 					camera.xAngle += 1 * deltaRotate;
 					break;
-				case('A'):
+				case('S'):
 					camera.xAngle += -1 * deltaRotate;
 					break;
-				case('W'):
+				case('D'):
 					camera.yAngle += 1 * deltaRotate;
 					break;
-				case('S'):
+				case('F'):
 					camera.yAngle += -1 * deltaRotate;
 					break;
 				case('Y'):
