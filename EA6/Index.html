@@ -1,0 +1,77 @@
+<!doctype html">
+<html lang="de">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Lukas Müller">
+	<title>EA6</title>
+
+	<link rel="stylesheet" href="style.css">
+	<script src="ext/gl-matrix.js"></script>  <!--Matrix-Bibliothek-->
+	<script src="Script.js"></script> <!--JavaScript-->
+	<script src="models/GVT_Src_vertexData_torus.js"></script> <!--createVertexData Torus-->
+	<script src="models/GVT_Src_vertexData_plane.js"></script><!--createVertexData Plane-->
+	<script src="models/GVT_Src_vertexData_sphere.js"></script><!--createVertexData Sphere-->
+	<script src="models/GVT_Src_vertexData_cylinder.js"></script><!--createVertexData Sphere-->
+	<script src="models/GVT_Src_vertexData_pillow.js"></script><!--createVertexData Pillow-->
+
+
+
+	<script type="x-shader/x-vertex" id="vertexshader">
+		attribute vec3 aPosition;
+		attribute vec3 aNormal;
+
+		uniform mat4 uPMatrix;
+		uniform mat4 uMVMatrix;
+
+		varying vec4 vColor;
+
+		void main(){
+			gl_Position = uPMatrix * uMVMatrix * vec4(aPosition, 1.0);
+
+			vColor = vec4(aNormal.x, aNormal.y, aNormal.z, 1.0);
+			vColor = (vColor + 1.0) / 2.0;
+		}
+	</script>
+	<script type="x-shader/x-fragment" id="fragmentshader">
+		precision mediump float;
+		varying vec4 vColor;
+
+		void main() {
+			gl_FragColor = vColor;
+		}
+	</script>
+
+</head>
+
+
+<body onload="app.start()">
+    <div class="box-container">
+        <div class="box1-content content">
+            <h1>EA 6 - Objekte bewegen - fliegende Kugeln </h1>
+            <div class="box">
+                <div class="sprite-container">
+					<canvas id="canvas" width="1000" height="1000"></canvas>
+                </div>
+            </div>
+			<div class="box1-side">
+				<h1>Steuerung</h1>
+				<ul>
+					<li><b>X, Y - Keys:</b> Zoomen</li>
+					<li><b>W, S, A, D  - Keys:</b> Kamera - Drehung</li>
+					<li><b>I, O ,P  - Keys:</b> Torus - Drehung  </li>
+					<li><b>K - Key:</b> Kugel - Drehung </li>
+
+				</ul>
+			</div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>Quelle: Skript</p>
+      </div>
+
+	</body>
+</html>
+
+
