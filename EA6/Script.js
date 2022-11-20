@@ -133,7 +133,7 @@ var app = ( function() {
 		// fill-style
 		var fs = "fillwireframe";
 		createModel("plane", "wireframe",  [0, -2, 0], [0, 0, 0], [1, 1, 1]);
-		createModel("torus1", fs, [0, 0, 3.5], [0, 2, 0], [2, 2, 2]);
+		createModel("torus1", fs, [0, 0, 3.5], [0, Math.PI/2, 0], [2, 2, 2]);
 		
 		createModel("sphere1", fs, [3.5, 0, 0], [0, 0, 0], [0.3, 0.3, 0.3]);
 		createModel("sphere1", fs, [0, 0, -3.5], [0, 0, 0], [0.3, 0.3, 0.3]);
