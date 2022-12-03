@@ -2,8 +2,9 @@
 <html>
 	<head>
 		<script src="ext/gl-matrix.js"></script>
-		<script src="GVT_Src_vertexData_plane.js"></script>
-		<script src="TXR_Src_tpl.js"></script>
+		<script src="models/GVT_Src_vertexData_plane.js"></script>
+		<script src="models/GVT_Src_vertexData_torus.js"></script>
+		<script src="Aufgabe9.js"></script>
 		<script type="x-shader/x-vertex" id="vertexshader">
 			attribute vec3 aPosition;
 			attribute vec3 aNormal;
@@ -39,6 +40,8 @@
 		</script>
 	</head>
 	<body onload="app.start()">
-		<canvas id="canvas" width="500" height="500"></canvas>
+		<p>W, S, A, D zum Drehen der Kamera </br>
+		Q, E zum Zoomen</p>
+		<canvas id="canvas" width="1000" height="1000"></canvas>
 	</body>
 </html>
