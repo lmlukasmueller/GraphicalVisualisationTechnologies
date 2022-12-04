@@ -1,0 +1,88 @@
+<!doctype html">
+<html lang="de">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Lukas Müller">
+	<title>EA9</title>
+
+	<link rel="stylesheet" href="style.css">
+	<script src="ext/gl-matrix.js"></script>  <!--Matrix-Bibliothek-->
+	<script src="Script.js"></script> <!--JavaScript-->
+	<script src="GVT_Src_vertexData_plane.js"></script>
+	<script src="GVT_Src_vertexData_sphere.js"></script>
+	<script src="GVT_Src_vertexData_torus.js"></script>
+	<script type="x-shader/x-vertex" id="vertexshader">
+
+
+			attribute vec3 aPosition;
+			attribute vec3 aNormal;
+			attribute vec2 aTextureCoord;
+			
+			uniform mat4 uPMatrix;
+			uniform mat4 uMVMatrix;
+			uniform mat3 uNMatrix;
+			
+			varying vec2 vTextureCoord;
+			
+			void main(){
+				// Calculte vertex position in eye coordinates. 
+				vec4 tPosition = uMVMatrix * vec4(aPosition, 1.0);
+				// Calculate projektion.
+				gl_Position = uPMatrix * tPosition;
+			
+				vec3 tNormal = normalize(uNMatrix * aNormal);
+				
+				vTextureCoord = aTextureCoord;		
+			}
+		</script>
+		<script type="x-shader/x-fragment" id="fragmentshader">
+			precision mediump float;
+			
+			uniform sampler2D uTexture;
+			
+			varying vec2 vTextureCoord;
+			
+			void main() {
+				gl_FragColor = texture2D(uTexture, vTextureCoord);
+			}			
+		</script>
+	</head>
+
+
+<body onload="app.start()">
+    <div class="box-container">
+        <div class="box1-content content">
+            <h1>EA 9 - Torustextur </h1>
+            <div class="box">
+                <div class="sprite-container">
+					<canvas id="canvas" width="700" height="500"></canvas>
+                </div>
+            </div>
+			<br>
+			<div class="box1-side">
+				<h1>Steuerung</h1>
+				<ul>
+					<li><b>X, Y - Keys:</b> Zoomen</li>
+					<li><b>W, S, A, D  - Keys:</b> Kamera - Drehung</li>
+
+				</ul>
+			</div>
+        </div>
+      </div>
+
+	</body>
+</html>
+
+
+
+<!DOCTYPE html5>
+<html>
+	<head>
+
+
+	</head>
+	<body onload="app.start()">
+		<canvas id="canvas" width="500" height="500"></canvas>
+	</body>
+</html>
