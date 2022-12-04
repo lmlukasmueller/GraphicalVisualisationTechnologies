@@ -253,7 +253,7 @@ var app = (function() {
         });
  
         createModel("plane", fs, [ 1, 1, 1, 1 ], [ 0, 0, 0, 0 ], [ 0, 0, 0,
-                0 ], [ 1, 1, 1, 1 ], mGrey, "textures/sand.jpg");
+                0 ], [ 1, 1, 1, 1 ], mGrey, "textures/fabrik.jpg");
 		createModel("torus", fs, [ 1, 1, 1, 1 ], [ 0, 2, 0 ], [ 0, 0, 0 ],
                 [ 2, 2, 2 ], mWhite, "textures/sand.jpg");
  
@@ -361,71 +361,55 @@ var app = (function() {
 		// Rotation step for models.
 		var deltaRotate = Math.PI / 36;
 
-        window.onkeydown = function(evt) {
-            var key = evt.which ? evt.which : evt.keyCode;
-            var c = String.fromCharCode(key);
-            // console.log(evt);
-            // Use shift key to change sign.
-            var sign = evt.shiftKey ? -1 : 1;
-            // Rotate interactiveModel.
-            switch (c) {
-            case ('X'):
-                interactiveModel.rotate[0] += sign * deltaRotate;
-                break;
-            case ('Y'):
-                interactiveModel.rotate[1] += sign * deltaRotate;
-                break;
-            case ('Z'):
-                interactiveModel.rotate[2] += sign * deltaRotate;
-                 break;
-             }
-             // Scale/squeese interactiveModel.
-             switch (c) {
-            case ('S'):
-                 interactiveModel.scale[0] *= 1 + sign * deltaScale;
-                 interactiveModel.scale[1] *= 1 - sign * deltaScale;
-                interactiveModel.scale[2] *= 1 + sign * deltaScale;
-                break;
-            }
-            // Change projection of scene.
-            switch (c) {
-             case ('O'):
-                 camera.projectionType = "ortho";
-                 camera.lrtb = 2;
-                 break;
-             case ('F'):
-                 camera.projectionType = "frustum";
-                camera.lrtb = 1.2;
-                 break;
-             case ('P'):
-                 camera.projectionType = "perspective";
-                 break;
-            }
-             // Camera move and orbit.
-            switch (c) {
-            case ('C'):
-                // Orbit camera.
-                 camera.zAngle += sign * deltaRotate;
-                break;
-            case ('H'):
-                // Move camera up and down.
-                camera.eye[1] += sign * deltaTranslate;
-                 break;
-             case ('D'):
-                // Camera distance to center.
-                 camera.distance += sign * deltaTranslate;
-                 break;
-             case ('V'):
-                 // Camera fovy in radian.
-               camera.fovy += sign * 5 * Math.PI / 180;
-                 break;
-             case ('B'):
-                 // Camera near plane dimensions.
-                 camera.lrtb += sign * 0.1;
-                break;
-             }
-            // Render the scene again on any key pressed.
-             render();
+		window.onkeydown = function(evt) {
+			var key = evt.which ? evt.which : evt.keyCode;
+			var c = String.fromCharCode(key);
+			// Use shift key to change sign.
+			var sign = evt.shiftKey ? -1 : 1;
+
+			// Change projection of scene.
+			switch(c) {
+				case('O'):
+					camera.projectionType = "ortho";
+					camera.lrtb = 2;
+					break;
+				case('F'):
+					camera.projectionType = "frustum";
+					camera.lrtb = 1.2;
+					break;
+				case('P'):
+					camera.projectionType = "perspective";
+					break;
+			}
+			// Camera move and orbit.
+			switch(c) {
+				case('D'):
+					camera.xAngle += 1 * deltaRotate;
+					break;
+				case('A'):
+					camera.xAngle += -1 * deltaRotate;
+					break;
+				case('W'):
+					camera.yAngle += 1 * deltaRotate;
+					break;
+				case('S'):
+					camera.yAngle += -1 * deltaRotate;
+					break;
+				case('Q'):
+                    // Camera fovy in radian.
+                    camera.fovy += 1 * 5 * Math.PI / 180;
+                    // Camera near plane dimensions.
+                    camera.lrtb += 1 * 0.1;
+                    break;
+				case('E'):
+                    // Camera fovy in radian.
+                    camera.fovy += -1 * 5 * Math.PI / 180;
+                    // Camera near plane dimensions.
+                    camera.lrtb += -1 * 0.1;
+                    break;
+			}
+			// Render the scene again on any key pressed.
+			render();
 		};
 	}
  
