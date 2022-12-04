@@ -395,13 +395,13 @@ var app = (function() {
 				case('S'):
 					camera.yAngle += -1 * deltaRotate;
 					break;
-				case('Q'):
+				case('X'):
                     // Camera fovy in radian.
                     camera.fovy += 1 * 5 * Math.PI / 180;
                     // Camera near plane dimensions.
                     camera.lrtb += 1 * 0.1;
                     break;
-				case('E'):
+				case('Y'):
                     // Camera fovy in radian.
                     camera.fovy += -1 * 5 * Math.PI / 180;
                     // Camera near plane dimensions.
