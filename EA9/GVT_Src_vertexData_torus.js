@@ -15,11 +15,18 @@ var torus = ( function() {
 		var indicesLines = this.indicesLines;
 		this.indicesTris = new Uint16Array(3 * 2 * n * m);
 		var indicesTris = this.indicesTris;
+		
+		this.textureCoord = new Float32Array(2 * (n + 1) * (m + 1));
+        var textureCoord = this.textureCoord;
 
 		var du = 2 * Math.PI / n;
 		var dv = 2 * Math.PI / m;
 		var r = 0.3;
 		var R = 0.5;
+		
+		var offsetX = -1;
+		var offsetY = 1;
+		var offsetZ = 0;
 		// Counter for entries in index array.
 		var iLines = 0;
 		var iTris = 0;
@@ -47,6 +54,9 @@ var torus = ( function() {
 				normals[iVertex * 3] = nx;
 				normals[iVertex * 3 + 1] = ny;
 				normals[iVertex * 3 + 2] = nz;
+				
+				textureCoord[iVertex * 2] = u / (2*Math.PI); // s
+                textureCoord[iVertex * 2 + 1] = v / (2*Math.PI); // t
 
 				// if(i>14){
 				// continue;
