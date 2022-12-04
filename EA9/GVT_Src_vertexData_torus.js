@@ -56,7 +56,7 @@ var torus = ( function() {
 				normals[iVertex * 3 + 2] = nz;
 				
 				textureCoord[iVertex * 2] = u / (2*Math.PI); // s
-                textureCoord[iVertex * 2 + 1] = v / (2*Math.PI); // t
+                		textureCoord[iVertex * 2 + 1] = v / (2*Math.PI); // t
 
 				// if(i>14){
 				// continue;
