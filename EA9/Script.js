@@ -253,7 +253,7 @@ var app = (function() {
         });
  
         createModel("plane", fs, [ 1, 1, 1, 1 ], [ 0, 0, 0, 0 ], [ 0, 0, 0,
-                0 ], [ 1, 1, 1, 1 ], mGrey, "textures/plane.png");
+                0 ], [ 1, 1, 1, 1 ], mGrey, "textures/grass.png");
 		createModel("torus", fs, [ 1, 1, 1, 1 ], [ 0, 2, 0 ], [ 0, 0, 0 ],
                 [ 2, 2, 2 ], mWhite, "textures/torus.png");
  
