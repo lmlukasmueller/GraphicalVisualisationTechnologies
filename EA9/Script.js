@@ -253,9 +253,9 @@ var app = (function() {
         });
  
         createModel("plane", fs, [ 1, 1, 1, 1 ], [ 0, 0, 0, 0 ], [ 0, 0, 0,
-                0 ], [ 1, 1, 1, 1 ], mGrey, "textures/fabrik.jpg");
+                0 ], [ 1, 1, 1, 1 ], mGrey, "textures/grass.png");
 		createModel("torus", fs, [ 1, 1, 1, 1 ], [ 0, 2, 0 ], [ 0, 0, 0 ],
-                [ 2, 2, 2 ], mWhite, "textures/sand.jpg");
+                [ 2, 2, 2 ], mWhite, "textures/granite.png");
  
         // Select one model that can be manipulated interactively by user.
         interactiveModel = models[0];
