@@ -52,8 +52,8 @@ var plane = ( function() {
 				//textureCoord[iVertex * 2] = u;//(u+10)/20;
                 //textureCoord[iVertex * 2 + 1] = v;//(v+10)/20;
 				                // Set texture coordinate.
-                textureCoord[iVertex * 2] = (u+10)/20;
-                textureCoord[iVertex * 2 + 1] = (v+10)/20;
+textureCoord[iVertex * 2] = u;
+textureCoord[iVertex * 2 + 1] = v;
 
 				// if(i>14){
 				// continue;
