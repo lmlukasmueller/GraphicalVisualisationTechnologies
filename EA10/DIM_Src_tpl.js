@@ -99,6 +99,7 @@ var app = (function () {
         //Data.generateData();
         //Data.readFileFromServer('data/HabermansSurvivalDataSet/haberman.data');
         //Data.readFileFromServer('data/iris/data.csv');
+        //Data.readFileFromServer('data/iris/iris.data');
         Data.readFileFromServer('data/seeds/seeds_dataset.csv');
         
     }
